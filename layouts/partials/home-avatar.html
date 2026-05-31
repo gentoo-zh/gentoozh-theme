@@ -1,18 +1,17 @@
-{{- /* Renders one contributor avatar link for the home marquee.
-       Params: page (contributor Page), dup (bool — aria-hide duplicated copies). */ -}}
+{{- /* Renders one contributor avatar for the home marquee.
+       Params: page (contributor Page), dup (bool).
+       The marquee renders each row twice for a seamless CSS loop; the dup copies
+       are non-link <span>s with empty alt, so text browsers (lynx/w3m) & screen
+       readers list each contributor only once — no doubled links. */ -}}
 {{- $p := .page -}}
+{{- $dup := $.dup -}}
 {{- $images := $p.Resources.ByType "image" -}}
 {{- $avatar := "" -}}
 {{- range slice "avatar_card*" "avatar_single*" "*feature*" -}}
   {{- if not $avatar -}}{{- $m := $images.GetMatch . -}}{{- if $m -}}{{- $avatar = $m -}}{{- end -}}{{- end -}}
 {{- end -}}
-{{- /* dup copies (for the seamless CSS loop) emit no text/alt/title so text
-       browsers & screen readers list each contributor only once. */ -}}
-<a class="home-avatar" href="{{ $p.RelPermalink }}"{{ if $.dup }} aria-hidden="true" tabindex="-1"{{ else }} title="{{ $p.Title }}" aria-label="{{ $p.Title }}"{{ end }}>
-  {{- with $avatar -}}
-    {{- $sm := .Resize "120x webp q80" -}}
-    <img src="{{ $sm.RelPermalink }}" alt="{{ if not $.dup }}{{ $p.Title }}{{ end }}" width="52" height="52" loading="lazy" />
-  {{- else -}}
-    <span class="home-avatar-placeholder" aria-hidden="true">{{ substr $p.Title 0 1 | upper }}</span>
-  {{- end -}}
-</a>
+{{- if $dup -}}
+<span class="home-avatar" aria-hidden="true">{{ with $avatar }}{{ $sm := .Resize "120x webp q80" }}<img src="{{ $sm.RelPermalink }}" alt="" width="52" height="52" loading="lazy" />{{ else }}<span class="home-avatar-placeholder">{{ substr $p.Title 0 1 | upper }}</span>{{ end }}</span>
+{{- else -}}
+<a class="home-avatar" href="{{ $p.RelPermalink }}" title="{{ $p.Title }}" aria-label="{{ $p.Title }}">{{ with $avatar }}{{ $sm := .Resize "120x webp q80" }}<img src="{{ $sm.RelPermalink }}" alt="{{ $p.Title }}" width="52" height="52" loading="lazy" />{{ else }}<span class="home-avatar-placeholder" aria-hidden="true">{{ substr $p.Title 0 1 | upper }}</span>{{ end }}</a>
+{{- end -}}

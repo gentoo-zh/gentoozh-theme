@@ -199,3 +199,17 @@ main.hextra-max-content-width { padding-top: 2rem; }
 .copy-chip:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
 #copy-toast { position: fixed; left: 50%; bottom: 2rem; z-index: 60; transform: translateX(-50%) translateY(1rem); background: var(--primary-strong); color: #fff; font-size: 0.85rem; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 9999px; opacity: 0; pointer-events: none; transition: opacity 0.18s ease, transform 0.18s ease; }
 #copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Hero 内的社区天数（成立至今，构建时计算，无 JS、文本浏览器友好） */
+.bento-since { font-size: 0.85rem; color: var(--text-soft); margin-top: -0.1rem; }
+.bento-since b { font-size: 1.1rem; font-weight: 700; color: var(--primary); font-variant-numeric: tabular-nums; margin: 0 0.15rem; }
+
+/* 页脚：居中三行，有层次、有呼吸感 */
+.gz-footer { text-align: center; padding: 2.75rem 0 2.5rem; }
+.gz-footer p { margin: 0; }
+.gz-footer-name { font-size: 0.9rem; color: var(--text-soft); }
+.gz-footer-meta { font-size: 0.78rem; color: var(--text-soft); margin-top: 0.85rem; }
+.gz-footer-sub { font-size: 0.72rem; color: var(--text-soft); opacity: 0.6; margin-top: 0.55rem; }
+.gz-footer a { color: inherit; text-decoration: none; transition: color 0.15s ease; }
+.gz-footer a:hover { color: var(--primary); }
+.gz-footer-sub a { text-decoration: underline; text-underline-offset: 2px; }

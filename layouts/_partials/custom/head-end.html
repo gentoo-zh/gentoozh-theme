@@ -7,6 +7,25 @@
   <link rel="alternate" type="application/rss+xml" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}" />
 {{- end -}}
 
+{{- /* SEO 补全：Hextra 默认不输出多语言 hreflang、og:site_name / og:locale 与结构化数据。
+       这里经官方 custom/head-end 钩子补上——不覆盖主题核心，纯加 <head> 标签。
+       hreflang 用脚本子标签（zh-Hans 简 / zh-Hant 繁），x-default 指向默认语言（zh-cn）。 */ -}}
+{{- $hreflang := dict "zh-cn" "zh-Hans" "zh-tw" "zh-Hant" -}}
+{{- range .AllTranslations -}}
+<link rel="alternate" hreflang="{{ index $hreflang .Language.Lang | default .Language.Lang }}" href="{{ .Permalink }}" />
+{{- end -}}
+{{- range .AllTranslations -}}{{- if eq .Language.Lang "zh-cn" -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+{{- end -}}{{- end -}}
+{{- $ogLocale := cond (eq .Site.Language.Lang "zh-tw") "zh_TW" "zh_CN" -}}
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<meta property="og:locale" content="{{ $ogLocale }}" />
+<meta property="og:locale:alternate" content="{{ cond (eq .Site.Language.Lang "zh-tw") "zh_CN" "zh_TW" }}" />
+{{- if .IsHome -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink "inLanguage" $ogLocale "description" .Site.Params.description | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Organization" "name" .Site.Title "url" .Site.Home.Permalink "logo" (absURL "img/og-cover.png") "sameAs" (slice "https://github.com/Gentoo-zh" "https://t.me/gentoocn") | jsonify | safeJS }}</script>
+{{- end -}}
+
 {{- /* 点击复制：给 {{< copy >}} 短代码生成的 <code class="copy-chip"> 绑定单击/键盘
        复制，并弹出一个小提示。渐进增强——页面上没有 chip 时整段不做事，也不注入提示框。 */ -}}
 <script>
