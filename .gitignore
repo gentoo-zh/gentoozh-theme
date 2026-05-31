@@ -1,0 +1,5 @@
+# Hugo 构建产物（本模块通常不单独构建，留作保险）
+/public/
+/resources/
+.hugo_build.lock
+hugo_stats.json

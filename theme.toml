@@ -1,0 +1,10 @@
+name = "gentoozh-theme"
+license = "MIT"
+licenselink = "https://github.com/Gentoo-zh/gentoozh-theme/blob/master/LICENSE"
+description = "Gentoo 中文社区官网的 Hextra 补丁包（在 Hextra 之上叠加 layouts / 样式 / i18n，跟随上游更新）"
+homepage = "https://www.gentoo.org.cn/"
+min_version = "0.146.0"
+
+[author]
+  name = "Gentoo 中文社区"
+  homepage = "https://www.gentoo.org.cn/"

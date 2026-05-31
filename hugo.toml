@@ -1,0 +1,8 @@
+# gentoozh-theme — Gentoo 中文社区官网的 Hugo 主题模块。
+# 在 Hextra 之上叠加本站的 layouts / assets(custom.css) / i18n 覆盖与新增。
+# 依赖链：站点 → gentoozh-theme → Hextra（查找顺序让本模块的覆盖压过 Hextra）。
+# 升级 Hextra：在本仓库 `hugo mod get -u github.com/imfing/hextra && hugo mod tidy`，打 tag 发版。
+
+[module]
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
