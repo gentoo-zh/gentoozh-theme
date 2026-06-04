@@ -16,15 +16,15 @@
 {{- $cta2 := .Get "cta2" -}}
 {{- $cta2Link := .Get "cta2Link" -}}
 {{- $entries := slice
-  (dict "icon" "book-open"          "title" (cond $isTw "安裝手冊" "安装手册")  "sub" "Gentoo 官方 Handbook" "link" "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation/zh-cn")
-  (dict "icon" "download"           "title" (cond $isTw "下載" "下载")       "sub" (cond $isTw "Live ISO · Stage3 · 安裝介質" "Live ISO · Stage3 · 安装介质") "link" "download")
-  (dict "icon" "globe-alt"          "title" (cond $isTw "鏡像列表" "镜像列表") "sub" (cond $isTw "Portage 同步加速" "Portage 同步加速") "link" "mirrorlist")
-  (dict "icon" "information-circle"  "title" (cond $isTw "關於" "关于")       "sub" (cond $isTw "社群介紹與參與" "社区介绍与参与") "link" "about")
+  (dict "icon" "book-open"          "title" (i18n "bento_handbook")  "sub" (i18n "bento_handbook_sub") "link" (i18n "bento_handbook_link"))
+  (dict "icon" "download"           "title" (i18n "bento_download")       "sub" (i18n "bento_download_sub") "link" "download")
+  (dict "icon" "globe-alt"          "title" (i18n "bento_mirrors") "sub" (i18n "bento_mirrors_sub") "link" "mirrorlist")
+  (dict "icon" "information-circle"  "title" (i18n "bento_about")       "sub" (i18n "bento_about_sub") "link" "about")
 -}}
 {{- $community := slice
-  (dict "icon" "speakerphone" "name" (cond $isTw "Telegram 頻道" "Telegram 频道") "sub" (cond $isTw "@gentoocn · 公告" "@gentoocn · 公告") "link" "https://t.me/gentoocn")
-  (dict "icon" "chat-alt-2"   "name" (cond $isTw "Telegram 交流群" "Telegram 交流群") "sub" "@gentoo_zh" "link" "https://t.me/gentoo_zh")
-  (dict "icon" "chat"         "name" (cond $isTw "Telegram 閒聊群" "Telegram 闲聊群") "sub" "@gentoo_zh_offtopic" "link" "https://t.me/gentoo_zh_offtopic")
+  (dict "icon" "speakerphone" "name" (i18n "bento_tg_channel") "sub" (i18n "bento_tg_channel_sub") "link" "https://t.me/gentoocn")
+  (dict "icon" "chat-alt-2"   "name" (i18n "bento_tg_chat") "sub" "@gentoo_zh" "link" "https://t.me/gentoo_zh")
+  (dict "icon" "chat"         "name" (i18n "bento_tg_offtopic") "sub" "@gentoo_zh_offtopic" "link" "https://t.me/gentoo_zh_offtopic")
   (dict "icon" "github"     "name" "GitHub" "sub" "Gentoo-zh"  "link" "https://github.com/Gentoo-zh")
 -}}
 <div class="bento not-prose">
@@ -37,7 +37,7 @@
       {{- with $cta }}{{ $h := cond (hasPrefix $ctaLink "http") $ctaLink (relLangURL (strings.TrimPrefix "/" $ctaLink)) }}<a class="bento-cta" href="{{ $h }}"{{ if hasPrefix $ctaLink "http" }} target="_blank" rel="noreferrer"{{ end }}>{{ . }}</a>{{ end }}
       {{- with $cta2 }}{{ $h := cond (hasPrefix $cta2Link "http") $cta2Link (relLangURL (strings.TrimPrefix "/" $cta2Link)) }}<a class="bento-cta-2" href="{{ $h }}"{{ if hasPrefix $cta2Link "http" }} target="_blank" rel="noreferrer"{{ end }}>{{ . }}</a>{{ end }}
     </div>
-    <p class="bento-since">{{ cond $isTw "社群已運行" "社区已运行" }} <b>{{ $days }}</b> {{ cond $isTw "天" "天" }}</p>
+    <p class="bento-since">{{ i18n "bento_running" }} <b>{{ $days }}</b> {{ i18n "bento_days" }}</p>
   </section>
 
   {{- range $entries }}
@@ -50,7 +50,7 @@
   {{- end }}
 
   <section class="bento-tile bento-full" aria-labelledby="bento-community">
-    <div class="bento-head"><h2 id="bento-community" class="bento-head-title">{{ cond $isTw "加入社群" "加入社区" }}</h2><a class="bento-head-more" href="{{ relLangURL "about/" }}">全部入口 <span class="bento-head-more-arrow">→</span></a></div>
+    <div class="bento-head"><h2 id="bento-community" class="bento-head-title">{{ i18n "bento_join" }}</h2><a class="bento-head-more" href="{{ relLangURL "about/" }}">{{ i18n "bento_all_sections" }} <span class="bento-head-more-arrow">→</span></a></div>
     <div class="bento-links">
       {{- range $community }}
       <a class="bento-link" href="{{ .link | safeURL }}"{{ if hasPrefix .link "http" }} target="_blank" rel="noreferrer"{{ end }}>
@@ -71,10 +71,10 @@
   {{- if $posts }}
   <section class="bento-tile bento-full" aria-labelledby="bento-articles-h">
     <div class="bento-head">
-      <h2 id="bento-articles-h" class="bento-head-title">最新文章</h2>
+      <h2 id="bento-articles-h" class="bento-head-title">{{ i18n "bento_latest_posts" }}</h2>
       <span class="bento-head-actions">
-        <a class="bento-head-rss" href="{{ "feed.xml" | relLangURL }}" title="RSS" aria-label="RSS {{ cond $isTw "訂閱" "订阅" }}"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
-        <a class="bento-head-more" href="{{ relLangURL "posts/" }}">全部文章 <span class="bento-head-more-arrow">→</span></a>
+        <a class="bento-head-rss" href="{{ "feed.xml" | relLangURL }}" title="RSS" aria-label="RSS {{ i18n "bento_subscribe" }}"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+        <a class="bento-head-more" href="{{ relLangURL "posts/" }}">{{ i18n "bento_all_posts" }} <span class="bento-head-more-arrow">→</span></a>
       </span>
     </div>
     <div class="bento-articles">
@@ -98,10 +98,10 @@
   {{- if $shown }}
   <section class="bento-tile bento-full" aria-labelledby="bento-contribs">
     <div class="bento-head">
-      <h2 id="bento-contribs" class="bento-head-title">{{ cond $isTw "社群貢獻者" "社区贡献者" }}</h2>
+      <h2 id="bento-contribs" class="bento-head-title">{{ i18n "bento_contributors" }}</h2>
       <span class="bento-head-actions">
-        <a class="bento-head-more" href="{{ relLangURL "contributing/" }}">{{ cond $isTw "我也要參與 " "我也要参与 " }}<span class="bento-head-more-arrow">→</span></a>
-        <a class="bento-head-more" href="{{ relLangURL "contributors/" }}">{{ printf "查看全部 %d 位 " (len $contribs) }}<span class="bento-head-more-arrow">→</span></a>
+        <a class="bento-head-more" href="{{ relLangURL "contributing/" }}">{{ i18n "bento_get_involved" }} <span class="bento-head-more-arrow">→</span></a>
+        <a class="bento-head-more" href="{{ relLangURL "contributors/" }}">{{ i18n "bento_see_all" (dict "count" (len $contribs)) }} <span class="bento-head-more-arrow">→</span></a>
       </span>
     </div>
     <div class="home-marquee">

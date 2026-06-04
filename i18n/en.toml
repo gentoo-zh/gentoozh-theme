@@ -1,0 +1,121 @@
+# gentoozh-theme 模板 i18n(项目 override 用),en
+
+[bento_about]
+other = "About"
+
+[bento_about_sub]
+other = "Community intro & how to join"
+
+[bento_all_posts]
+other = "All posts"
+
+[bento_all_sections]
+other = "All sections"
+
+[bento_contributors]
+other = "Contributors"
+
+[bento_days]
+other = "days"
+
+[bento_download]
+other = "Download"
+
+[bento_download_sub]
+other = "Live ISO · Stage3 · install media"
+
+[bento_get_involved]
+other = "Get involved"
+
+[bento_handbook]
+other = "Handbook"
+
+[bento_handbook_sub]
+other = "Official Gentoo Handbook"
+
+[bento_handbook_link]
+other = "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation"
+
+[bento_join]
+other = "Join the community"
+
+[bento_latest_posts]
+other = "Latest posts"
+
+[bento_mirrors]
+other = "Mirrors"
+
+[bento_mirrors_sub]
+other = "Faster Portage sync"
+
+[bento_running]
+other = "Running for"
+
+[bento_see_all]
+other = "See all {{ .count }}"
+
+[bento_subscribe]
+other = "Subscribe"
+
+[bento_tg_channel]
+other = "Telegram channel"
+
+[bento_tg_channel_sub]
+other = "@gentoocn · announcements"
+
+[bento_tg_chat]
+other = "Telegram chat group"
+
+[bento_tg_offtopic]
+other = "Telegram off-topic group"
+
+[contrib_back]
+other = "Back to contributors"
+
+[contrib_commits]
+other = "commits"
+
+[contrib_founders]
+other = "Community founders"
+
+[contrib_overlay_contributors]
+other = "Gentoo zh Overlay contributors"
+
+[contrib_overlay_maintainers]
+other = "Gentoo zh Overlay maintainers"
+
+[contrib_web_admin]
+other = "Site maintainers"
+
+[contrib_web_content]
+other = "Site content contributors"
+
+[copy_click_to_copy]
+other = "Click to copy"
+
+[footer_license]
+other = "Licensed"
+
+[footer_patchpack]
+other = "Theme patches"
+
+[footer_powered_prefix]
+other = "Powered by"
+
+[footer_powered_suffix]
+other = ""
+
+[head_copied]
+other = "Copied"
+
+[nf_desc]
+other = "Maybe the address is wrong, or it has been moved."
+
+[nf_home]
+other = "Home"
+
+[nf_posts]
+other = "Posts"
+
+[nf_title]
+other = "Page not found"

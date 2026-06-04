@@ -32,14 +32,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   var chips = document.querySelectorAll('.copy-chip[data-copy]');
   if (!chips.length) return;
-  var tw = (document.documentElement.lang || '').toLowerCase().indexOf('tw') !== -1;
   var toast = document.createElement('div');
   toast.id = 'copy-toast';
   toast.setAttribute('aria-hidden', 'true');
   document.body.appendChild(toast);
   var timer;
   function flash() {
-    toast.textContent = tw ? '已複製' : '已复制';
+    toast.textContent = {{ i18n "head_copied" | jsonify }};
     toast.classList.add('show');
     clearTimeout(timer);
     timer = setTimeout(function () { toast.classList.remove('show'); }, 1200);

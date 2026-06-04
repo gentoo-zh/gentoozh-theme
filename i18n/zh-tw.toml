@@ -1,0 +1,121 @@
+# gentoozh-theme 模板 i18n(项目 override 用),zh-tw
+
+[bento_about]
+other = "關於"
+
+[bento_about_sub]
+other = "社群介紹與參與"
+
+[bento_all_posts]
+other = "全部文章"
+
+[bento_all_sections]
+other = "全部入口"
+
+[bento_contributors]
+other = "社群貢獻者"
+
+[bento_days]
+other = "天"
+
+[bento_download]
+other = "下載"
+
+[bento_download_sub]
+other = "Live ISO · Stage3 · 安裝介質"
+
+[bento_get_involved]
+other = "我也要參與"
+
+[bento_handbook]
+other = "安裝手冊"
+
+[bento_handbook_sub]
+other = "Gentoo 官方 Handbook"
+
+[bento_handbook_link]
+other = "https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation/zh-cn"
+
+[bento_join]
+other = "加入社群"
+
+[bento_latest_posts]
+other = "最新文章"
+
+[bento_mirrors]
+other = "鏡像列表"
+
+[bento_mirrors_sub]
+other = "Portage 同步加速"
+
+[bento_running]
+other = "社群已運行"
+
+[bento_see_all]
+other = "查看全部 {{ .count }} 位"
+
+[bento_subscribe]
+other = "訂閱"
+
+[bento_tg_channel]
+other = "Telegram 頻道"
+
+[bento_tg_channel_sub]
+other = "@gentoocn · 公告"
+
+[bento_tg_chat]
+other = "Telegram 交流群"
+
+[bento_tg_offtopic]
+other = "Telegram 閒聊群"
+
+[contrib_back]
+other = "返回貢獻者列表"
+
+[contrib_commits]
+other = "次提交"
+
+[contrib_founders]
+other = "社群創始人"
+
+[contrib_overlay_contributors]
+other = "Gentoo zh Overlay 貢獻者"
+
+[contrib_overlay_maintainers]
+other = "Gentoo zh Overlay 現任主要維護者"
+
+[contrib_web_admin]
+other = "網站維護者"
+
+[contrib_web_content]
+other = "網站內容貢獻者"
+
+[copy_click_to_copy]
+other = "點擊複製"
+
+[footer_license]
+other = "授權"
+
+[footer_patchpack]
+other = "主題補丁包"
+
+[footer_powered_prefix]
+other = "由"
+
+[footer_powered_suffix]
+other = "驅動"
+
+[head_copied]
+other = "已複製"
+
+[nf_desc]
+other = "可能是地址打錯了，或者它已經被移走了。"
+
+[nf_home]
+other = "回首頁"
+
+[nf_posts]
+other = "看文章"
+
+[nf_title]
+other = "這個頁面沒找到"

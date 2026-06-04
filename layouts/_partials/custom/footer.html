@@ -1,8 +1,7 @@
 {{- /* 站点页脚：居中三行，有层次有呼吸感。© 一行、许可+补丁包 一行、Powered by 一行（最淡）。 */ -}}
 {{- $ctx := .context -}}
-{{- $isTw := eq $ctx.Site.Language.Lang "zh-tw" -}}
 <div class="gz-footer">
-  <p class="gz-footer-name">© Gentoo 中文社区</p>
-  <p class="gz-footer-meta">{{ cond $isTw "授權" "许可" }} <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a> / <a href="https://github.com/Gentoo-zh/gentoozh-theme/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT</a> · <a href="https://github.com/Gentoo-zh/gentoozh-theme" target="_blank" rel="noreferrer">{{ cond $isTw "主題補丁包" "主题补丁包" }}</a></p>
-  <p class="gz-footer-sub">{{ cond $isTw "由" "由" }} <a href="https://github.com/imfing/hextra" target="_blank" rel="noreferrer">Hextra</a> + <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a> {{ cond $isTw "驅動" "驱动" }}</p>
+  <p class="gz-footer-name">© {{ site.Title }}</p>
+  <p class="gz-footer-meta">{{ i18n "footer_license" }} <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a> / <a href="https://github.com/Gentoo-zh/gentoozh-theme/blob/master/LICENSE" target="_blank" rel="noreferrer">MIT</a> · <a href="https://github.com/Gentoo-zh/gentoozh-theme" target="_blank" rel="noreferrer">{{ i18n "footer_patchpack" }}</a></p>
+  <p class="gz-footer-sub">{{ i18n "footer_powered_prefix" }} <a href="https://github.com/imfing/hextra" target="_blank" rel="noreferrer">Hextra</a> + <a href="https://gohugo.io/" target="_blank" rel="noreferrer">Hugo</a>{{ if ne site.Language.Lang "en" }} {{ i18n "footer_powered_suffix" }}{{ end }}</p>
 </div>

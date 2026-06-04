@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- $lang := .Site.Language.Lang -}}
-{{- $back := cond (eq $lang "zh-tw") "返回貢獻者列表" "返回贡献者列表" -}}
+{{- $back := (i18n "contrib_back") -}}
 
 {{ $featured := "" }}
 {{ $images := .Resources.ByType "image" }}

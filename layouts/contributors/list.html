@@ -25,11 +25,11 @@
       {{- end -}}
 
       {{- $sections := slice -}}
-      {{- if gt (len $founders) 0 }}{{- $sections = $sections | append (dict "title" (cond $isTw "社群創始人" "社群创始人") "pages" (sort $founders "Params.weight" "asc")) }}{{ end -}}
-      {{- if gt (len $webAdmin) 0 }}{{- $sections = $sections | append (dict "title" (cond $isTw "網站維護者" "网站维护者") "pages" (sort $webAdmin "Params.weight" "asc")) }}{{ end -}}
-      {{- if gt (len $website) 0 }}{{- $sections = $sections | append (dict "title" (cond $isTw "網站內容貢獻者" "网站内容贡献者") "pages" (sort $website "Params.weight" "asc")) }}{{ end -}}
-      {{- if gt (len $maintainers) 0 }}{{- $sections = $sections | append (dict "title" (cond $isTw "Gentoo zh Overlay 現任主要維護者" "Gentoo zh Overlay 现任主要维护者") "pages" (sort $maintainers "Params.weight" "asc")) }}{{ end -}}
-      {{- if gt (len $contributors) 0 }}{{- $sections = $sections | append (dict "title" (cond $isTw "Gentoo zh Overlay 貢獻者" "Gentoo zh Overlay 贡献者") "pages" (sort $contributors "Params.weight" "asc")) }}{{ end -}}
+      {{- if gt (len $founders) 0 }}{{- $sections = $sections | append (dict "title" (i18n "contrib_founders") "pages" (sort $founders "Params.weight" "asc")) }}{{ end -}}
+      {{- if gt (len $webAdmin) 0 }}{{- $sections = $sections | append (dict "title" (i18n "contrib_web_admin") "pages" (sort $webAdmin "Params.weight" "asc")) }}{{ end -}}
+      {{- if gt (len $website) 0 }}{{- $sections = $sections | append (dict "title" (i18n "contrib_web_content") "pages" (sort $website "Params.weight" "asc")) }}{{ end -}}
+      {{- if gt (len $maintainers) 0 }}{{- $sections = $sections | append (dict "title" (i18n "contrib_overlay_maintainers") "pages" (sort $maintainers "Params.weight" "asc")) }}{{ end -}}
+      {{- if gt (len $contributors) 0 }}{{- $sections = $sections | append (dict "title" (i18n "contrib_overlay_contributors") "pages" (sort $contributors "Params.weight" "asc")) }}{{ end -}}
 
       {{ range $sections }}
         <section>
@@ -53,7 +53,7 @@
                 {{ end }}
                 <div class="contributor-name">{{ $p.Title }}</div>
                 {{ with $ghHandle }}<div class="contributor-handle">@{{ . }}</div>{{ end }}
-                {{ with $p.Params.weight }}<div class="contributor-commits">{{ sub 10000 (int .) }} 次提交</div>{{ end }}
+                {{ with $p.Params.weight }}<div class="contributor-commits">{{ sub 10000 (int .) }} {{ i18n "contrib_commits" }}</div>{{ end }}
               </a>
             {{ end }}
           </div>
