@@ -17,10 +17,10 @@
       {{- $contributors := slice -}}
       {{- range .Pages -}}
         {{- $tags := .Params.tags | default slice -}}
-        {{- if or (in $tags "現任主要維護者") (in $tags "现任主要维护者") -}}{{- $maintainers = $maintainers | append . -}}
-        {{- else if or (in $tags "社群創始人") (in $tags "社群创始人") (in $tags "社区创始人") -}}{{- $founders = $founders | append . -}}
-        {{- else if or (in $tags "網站內容貢獻者") (in $tags "网站内容贡献者") -}}{{- $website = $website | append . -}}
-        {{- else if or (in $tags "網站維護者") (in $tags "网站维护者") -}}{{- $webAdmin = $webAdmin | append . -}}
+        {{- if or (in $tags "現任主要維護者") (in $tags "现任主要维护者") (in $tags "Current maintainer") -}}{{- $maintainers = $maintainers | append . -}}
+        {{- else if or (in $tags "社群創始人") (in $tags "社群创始人") (in $tags "社区创始人") (in $tags "社區創始人") (in $tags "Community founder") -}}{{- $founders = $founders | append . -}}
+        {{- else if or (in $tags "網站內容貢獻者") (in $tags "网站内容贡献者") (in $tags "Site content contributor") -}}{{- $website = $website | append . -}}
+        {{- else if or (in $tags "網站維護者") (in $tags "网站维护者") (in $tags "Site maintainer") -}}{{- $webAdmin = $webAdmin | append . -}}
         {{- else -}}{{- $contributors = $contributors | append . -}}{{- end -}}
       {{- end -}}
 
