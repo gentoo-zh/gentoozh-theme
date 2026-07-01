@@ -1,6 +1,6 @@
 # gentoozh-theme
 
-**Gentoo 中文社区官网（[gentoo.org.cn](https://www.gentoo.org.cn/)）的 Hextra 补丁包。**
+**Gentoo 中文社区官网（[gentoozh.org](https://gentoozh.org/)）的 Hextra 补丁包。**
 
 这**不是**从零写的主题，也**不是** fork——而是在 [Hextra](https://github.com/imfing/hextra) 之上叠加本站定制的一层「补丁包」：用 Hugo Module 的查找顺序，让这里的文件覆盖/扩展 Hextra，同时**仍然跟随上游 Hextra 的更新与 bug 修复**。
 
