@@ -65,10 +65,13 @@
   {{- /* 「最新文章」优先露出面向用户的技术内容：把站务/公告类（announcement/website 标签，
          如网站迁移、镜像变更）排到后面，让教程类先上；再 union 回站务文兜底，
          保证版块始终凑满 3 张卡、不会因过滤而变空（本站目前技术贴偏少）。
-         站务文在「全部文章」仍可达。教程一多，它们会自然占满前排。 */ -}}
+         站务文在「全部文章」仍可达。教程一多，它们会自然占满前排。
+         例外：front matter 写 featured: true 的文章（重大公告）始终排最前。 */ -}}
   {{- $recent := (where .Site.RegularPages "Section" "posts").ByDate.Reverse -}}
-  {{- $meta := where $recent "Params.tags" "intersect" (slice "announcement" "website") -}}
-  {{- $posts := first 3 (union (complement $meta $recent) $meta) -}}
+  {{- $featured := where $recent "Params.featured" true -}}
+  {{- $rest := complement $featured $recent -}}
+  {{- $meta := where $rest "Params.tags" "intersect" (slice "announcement" "website") -}}
+  {{- $posts := first 3 (union $featured (union (complement $meta $rest) $meta)) -}}
   {{- if $posts }}
   <section class="bento-tile bento-full" aria-labelledby="bento-articles-h">
     <div class="bento-head">
