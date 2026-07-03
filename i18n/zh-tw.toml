@@ -128,3 +128,6 @@ other = "看文章"
 
 [nf_title]
 other = "這個頁面沒找到"
+
+[bento_forum]
+other = "論壇"

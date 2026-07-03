@@ -128,3 +128,6 @@ other = "Posts"
 
 [nf_title]
 other = "Page not found"
+
+[bento_forum]
+other = "Forum"
