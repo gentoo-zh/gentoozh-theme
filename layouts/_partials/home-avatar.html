@@ -6,10 +6,7 @@
 {{- $p := .page -}}
 {{- $dup := $.dup -}}
 {{- $images := $p.Resources.ByType "image" -}}
-{{- $avatar := "" -}}
-{{- range slice "avatar_card*" "avatar_single*" "*feature*" -}}
-  {{- if not $avatar -}}{{- $m := $images.GetMatch . -}}{{- if $m -}}{{- $avatar = $m -}}{{- end -}}{{- end -}}
-{{- end -}}
+{{- $avatar := partial "utils/contributor-avatar.html" (dict "images" $images "patterns" (slice "avatar_card*" "avatar_single*" "*feature*")) -}}
 {{- if $dup -}}
 <span class="home-avatar" aria-hidden="true">{{ with $avatar }}{{ $sm := .Resize "120x webp q80" }}<img src="{{ $sm.RelPermalink }}" alt="" width="52" height="52" loading="lazy" />{{ else }}<span class="home-avatar-placeholder">{{ substr $p.Title 0 1 | upper }}</span>{{ end }}</span>
 {{- else -}}

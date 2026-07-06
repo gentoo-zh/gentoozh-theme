@@ -8,7 +8,7 @@
 {{- end -}}
 
 {{- /* SEO 补全：Hextra 默认不输出多语言 hreflang、og:site_name / og:locale 与结构化数据。
-       这里经官方 custom/head-end 钩子补上——不覆盖主题核心，纯加 <head> 标签。
+       这里经官方 custom/head-end 钩子补上，不覆盖主题核心，纯加 <head> 标签。
        hreflang 用脚本子标签（zh-Hans 简 / zh-Hant 繁），x-default 指向默认语言（zh-cn）。 */ -}}
 {{- $hreflang := dict "zh-cn" "zh-Hans" "zh-tw" "zh-Hant" -}}
 {{- range .AllTranslations -}}
@@ -31,7 +31,7 @@
 {{- end -}}
 
 {{- /* 点击复制：给 {{< copy >}} 短代码生成的 <code class="copy-chip"> 绑定单击/键盘
-       复制，并弹出一个小提示。渐进增强——页面上没有 chip 时整段不做事，也不注入提示框。 */ -}}
+       复制，并弹出一个小提示。渐进增强：页面上没有 chip 时整段不做事，也不注入提示框。 */ -}}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   var chips = document.querySelectorAll('.copy-chip[data-copy]');

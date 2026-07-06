@@ -18,12 +18,6 @@ other = "Contributors"
 [bento_days]
 other = "days"
 
-[bento_download]
-other = "Download"
-
-[bento_download_sub]
-other = "Live ISO · Stage3 · install media"
-
 [bento_bug]
 other = "Bug & news"
 
@@ -74,9 +68,6 @@ other = "@gentoocn · announcements"
 
 [bento_tg_chat]
 other = "Telegram chat group"
-
-[bento_tg_offtopic]
-other = "Telegram off-topic group"
 
 [contrib_back]
 other = "Back to contributors"

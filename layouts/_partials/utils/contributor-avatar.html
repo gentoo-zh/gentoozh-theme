@@ -1,0 +1,13 @@
+{{- /* 贡献者头像解析：给定图片资源集合 images 与一组 glob 优先级 patterns，
+       返回第一个命中的图片资源（都没命中则返回空字符串）。
+       原本这段循环在 contributors/list、contributors/single、home-avatar 各抄了一份。
+       用法：{{ $img := partial "utils/contributor-avatar.html" (dict "images" $images "patterns" (slice "avatar_card*" ...)) }} */ -}}
+{{- $images := .images -}}
+{{- $match := "" -}}
+{{- range .patterns -}}
+  {{- if and (not $match) $images -}}
+    {{- $m := $images.GetMatch . -}}
+    {{- if $m -}}{{- $match = $m -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $match -}}

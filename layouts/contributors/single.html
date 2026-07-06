@@ -1,15 +1,8 @@
 {{ define "main" }}
-{{- $lang := .Site.Language.Lang -}}
 {{- $back := (i18n "contrib_back") -}}
 
-{{ $featured := "" }}
 {{ $images := .Resources.ByType "image" }}
-{{ range slice "avatar_single*" "avatar_card*" "*feature*" "*cover*" "*thumbnail*" "*avatar*" }}
-  {{ if and (not $featured) $images }}
-    {{ $match := $images.GetMatch . }}
-    {{ if $match }}{{ $featured = $match }}{{ end }}
-  {{ end }}
-{{ end }}
+{{ $featured := partial "utils/contributor-avatar.html" (dict "images" $images "patterns" (slice "avatar_single*" "avatar_card*" "*feature*" "*cover*" "*thumbnail*" "*avatar*")) }}
 
 <div class="hx:mx-auto hx:flex hextra-max-page-width">
   {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}

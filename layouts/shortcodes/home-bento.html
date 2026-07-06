@@ -5,7 +5,6 @@
   articles/contributors are dynamic. Contributor avatars render twice per row so
   the two opposite-scrolling marquees loop seamlessly (2nd copy aria-hidden).
 */ -}}
-{{- $isTw := eq .Site.Language.Lang "zh-tw" -}}
 {{- $days := int (div (now.Sub (time.AsTime "2013-02-05T00:00:00Z")).Hours 24) -}}
 {{- $badge := .Get "badge" -}}
 {{- $badgeLink := .Get "badgeLink" | default "#" -}}

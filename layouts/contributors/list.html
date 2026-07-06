@@ -1,6 +1,4 @@
 {{ define "main" }}
-{{- $lang := .Site.Language.Lang -}}
-{{- $isTw := eq $lang "zh-tw" -}}
 
 <div class="hx:mx-auto hx:flex hextra-max-page-width">
   {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
@@ -37,10 +35,7 @@
           <div class="contributor-grid">
             {{ range $p := .pages }}
               {{ $images := $p.Resources.ByType "image" }}
-              {{ $avatar := "" }}
-              {{ range slice "avatar_card*" "avatar_single*" "*feature*" }}
-                {{ if not $avatar }}{{ $m := $images.GetMatch . }}{{ if $m }}{{ $avatar = $m }}{{ end }}{{ end }}
-              {{ end }}
+              {{ $avatar := partial "utils/contributor-avatar.html" (dict "images" $images "patterns" (slice "avatar_card*" "avatar_single*" "*feature*")) }}
               {{ $ghHandle := "" }}
               {{ with $p.Params.externalUrl }}{{ $ghHandle = . | replaceRE "https?://github.com/" "" | replaceRE "/$" "" }}{{ end }}
               <a href="{{ $p.RelPermalink }}" class="contributor-card">
@@ -53,6 +48,7 @@
                 {{ end }}
                 <div class="contributor-name">{{ $p.Title }}</div>
                 {{ with $ghHandle }}<div class="contributor-handle">@{{ . }}</div>{{ end }}
+                {{/* weight = 10000 - commits（由 update-contributors 脚本编码），这里反解回提交次数 */}}
                 {{ with $p.Params.weight }}<div class="contributor-commits">{{ sub 10000 (int .) }} {{ i18n "contrib_commits" }}</div>{{ end }}
               </a>
             {{ end }}

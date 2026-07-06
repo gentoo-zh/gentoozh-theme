@@ -18,12 +18,6 @@ other = "社区贡献者"
 [bento_days]
 other = "天"
 
-[bento_download]
-other = "下载"
-
-[bento_download_sub]
-other = "Live ISO · Stage3 · 安装介质"
-
 [bento_bug]
 other = "Bug & 新闻"
 
@@ -74,9 +68,6 @@ other = "@gentoocn · 公告"
 
 [bento_tg_chat]
 other = "Telegram 交流群"
-
-[bento_tg_offtopic]
-other = "Telegram 闲聊群"
 
 [contrib_back]
 other = "返回贡献者列表"
