@@ -27,7 +27,7 @@
 {{- end -}}
 {{- if .IsHome -}}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink "inLanguage" $ogLocale "description" .Site.Params.description | jsonify | safeJS }}</script>
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Organization" "name" .Site.Title "url" .Site.Home.Permalink "logo" (absURL "img/og-cover.png") "sameAs" (slice "https://github.com/Gentoo-zh" "https://t.me/gentoocn") | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Organization" "name" .Site.Title "url" .Site.Home.Permalink "logo" (absURL "img/og-cover.png") "sameAs" (slice "https://github.com/Gentoo-zh" "https://t.me/gentoocn" "https://wiki.gentoo.org/wiki/User:Gentoo-zh" "https://wiki.gentoo.org/wiki/Gentoo-zh") | jsonify | safeJS }}</script>
 {{- end -}}
 
 {{- /* 点击复制：给 {{< copy >}} 短代码生成的 <code class="copy-chip"> 绑定单击/键盘
