@@ -25,7 +25,7 @@ other = "Bug & news"
 other = "New Bugzilla bugs · official news"
 
 [bento_bug_link]
-other = "https://t.me/GentooBug"
+other = "https://telegram.me/GentooBug"
 
 [bento_get_involved]
 other = "Get involved"
